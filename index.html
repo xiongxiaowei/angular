@@ -29,6 +29,7 @@
      </script>
  </head>
  <body ng-controller='zhangsan'>
+   <img src='http://i4.buimg.com/592358/d1b65a2d49f6ba0a.png'></br>
    <input type="button" ng-repeat='json in arr' class="{{now==$index?'active':''}}" name="" value="{{json.name}}" ng-click='fn($index)'>
    <div ng-repeat='json in arr' ng-show='now==$index'class='aa' >
     {{json.content}}
