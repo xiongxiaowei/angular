@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='test'>
+  <head>
+     <meta charset="utf-8">
+     <title>angular</title>
+     <style media="screen">
+       .aa{width: 400px;height: 150px;border: 1px solid #ccc;padding:5px 5px;box-shadow: 2px 2px 2px #ccc;}
+       .active{background: red;}
+     </style>
+     <meta name="viewport" content="width=device-width,initial-scale=1.0,
+     maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+     <!-- <link rel="stylesheet" type="text/css" href="static/css/reset.css"> -->
+     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" charset="utf-8"></script>
+     <script >
+       var app=angular.module('test',[])
+       app.controller('zhangsan',function($scope,$http){
+         $scope.arr=[
+           {name:'音乐',content:'　今年，十八届中央第十二轮巡视引人注目，本轮15个中央巡视组中，将有11个组对29所中管高校党委进行专项巡视'},
+           {name:'体育',content:'　中国共产党新闻网北京4月18日电  (记者姚茜)今年是人事换届之年，地方人事变动频繁。据中国共产党新闻网记者统计，今年已有4省份省委书记、15省份省长履新。'},
+           {name:'汽车',content:'　4月1日，中共中央决定：张庆伟同志任黑龙江省委委员、常委、书记，刘家义同志任山东省委委员、常委、书记，刘赐贵同志任海南省委书记，林铎同志任甘肃省委书记。一日之内，黑龙江、山东、海南、甘肃四省份省委书记履新。'}
+         ]
+         $scope.now=0
+         $scope.fn=function (n) {
+           console.log(this)
+           console.log($scope)
+          $scope.now=n
+         }
+       })
+     </script>
+ </head>
+ <body ng-controller='zhangsan'>
+   <input type="button" ng-repeat='json in arr' class="{{now==$index?'active':''}}" name="" value="{{json.name}}" ng-click='fn($index)'>
+   <div ng-repeat='json in arr' ng-show='now==$index'class='aa' >
+    {{json.content}}
+   </div>
+ </body>
+</html>
